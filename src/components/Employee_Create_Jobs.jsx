@@ -42,7 +42,7 @@ const Employee_Create_Jobs = () => {
   // Fetching the data from activejobs in db.json file
   const fetchRegisterData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/activejobs');
+      const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
       const Responsedata = await response.json();
       setJobData(Responsedata);
     } catch (error) {
@@ -106,7 +106,7 @@ const Employee_Create_Jobs = () => {
     };
 
     try {
-      const jobresponse = await fetch('http://localhost:3000/activejobs', {
+      const jobresponse = await fetch(import.meta.env.VITE_ACTIVE_JOBS, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(jobWithPostedDate), // ❌ Error fixed: you used undefined variable `activejobs`

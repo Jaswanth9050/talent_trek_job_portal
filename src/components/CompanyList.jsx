@@ -23,7 +23,7 @@ function CompanySelector({ selectedCompany, setFormdata }) {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3000/company")
+    fetch(import.meta.env.VITE_COMPANY)
       .then(res => res.json())
       .then(data => setCompanies(data));
   }, []);
@@ -64,7 +64,7 @@ function CompanySelector({ selectedCompany, setFormdata }) {
       return;
     }
 
-    const res = await fetch("http://localhost:3000/company", {
+    const res = await fetch(import.meta.env.VITE_COMPANY, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newCompany)

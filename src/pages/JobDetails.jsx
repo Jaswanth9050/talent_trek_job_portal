@@ -13,7 +13,7 @@ const JobDetails = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/activejobs");
+        const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
         const data = await response.json();
         const foundJob = data.find((item) => item.id === id);
         setJobDetails(foundJob);
@@ -33,7 +33,11 @@ const JobDetails = () => {
     const fetchCompany = async () => {
       try {
         if (company.trim() !== "") {
-          const response = await fetch(`http://localhost:3000/company?company_name=${company}`);
+          const url = `${import.meta.env.VITE_COMPANY}?company_name=${encodeURIComponent(company)}`;
+          // const response = await fetch(`import.meta.env.VITE_COMPANY?company_name=${company}`)
+          // const response = await fetch(`http://localhost:3000/company?company_name=${company}`);
+          
+          const response = await fetch(url);
           const data = await response.json();
           if (data.length > 0) {
             setCompanyData(data[0]);

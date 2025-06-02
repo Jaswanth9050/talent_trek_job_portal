@@ -25,7 +25,7 @@ const Employee_Register_Form = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('http://localhost:3000/register');
+      const res = await fetch(import.meta.env.VITE_REGISTER);
       const udata = await res.json();
       setData(udata);
     } catch (error) {

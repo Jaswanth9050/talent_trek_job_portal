@@ -458,6 +458,18 @@
       "confirm_password": "12345",
       "Phone": "3216547922",
       "Job_role": "Full Stack Developer"
+    },
+    {
+      "id": "24d1",
+      "Emp_Id": "jas@258",
+      "First_Name": "Jaswanth",
+      "Last_Name": "Babu",
+      "company": "Google",
+      "Email": "Jaswanth@gmail.com",
+      "Password": "12345",
+      "confirm_password": "12345",
+      "Phone": "9876541230",
+      "Job_role": "Full Stack Developer"
     }
   ]
 }

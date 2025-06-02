@@ -14,7 +14,7 @@ const Employee_Profile = () => {
   //____________________________________________________FETCH_ALL_DATA___________________________________
   const fetchProfile=async()=>{
     try {
-      const profile_response=await fetch('http://localhost:3000/register');
+      const profile_response=await fetch(import.meta.env.VITE_REGISTER);
       const profile_data=await profile_response.json();
       setUserProfile(profile_data)
     } catch (error) {
@@ -53,7 +53,7 @@ const handleSave = async (e) => {
   try {
     // ✅ Awaiting fetch inside async fn
     const res = await fetch(
-      `http://localhost:3000/register/${foundProfile.id}`, 
+      `${import.meta.env.VITE_REGISTER}/${foundProfile.id}`, 
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -108,7 +108,8 @@ useEffect(() => {
   const fetchCompany = async () => {
     try {
       const storedCompanyName = localStorage.getItem("company_name");
-      const response = await fetch(`http://localhost:3000/company?company_name=${storedCompanyName}`);
+      // const response = await fetch(`http://localhost:3000/company?company_name=${storedCompanyName}`);
+      const response = await fetch(`${import.meta.env.VITE_COMPANY}?company_name=${encodeURIComponent(storedCompanyName)}`);
       
       if (!response.ok) {
         throw new Error("Network response was not ok");

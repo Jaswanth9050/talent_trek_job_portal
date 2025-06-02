@@ -20,7 +20,7 @@ const Application = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/activejobs`);
+        const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
         const data = await response.json();
         const foundJob = data.find((job) => job.id === id);
         if (foundJob) {
