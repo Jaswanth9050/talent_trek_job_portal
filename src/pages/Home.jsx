@@ -5,7 +5,8 @@ import Brands from '../components/Brands'
 import Category from '../components/Category'
 import Footer from '../components/Footer'
 import Feature from '../components/Feature'
-import Webinfo from '../components/webinfo'
+import Webinfo from '../components/Webinfo'
+
 import Trending from '../components/Trending'
 
 const Home = () => {
