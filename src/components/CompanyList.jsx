@@ -64,7 +64,7 @@ function CompanySelector({ selectedCompany, setFormdata }) {
       return;
     }
 
-    const res = await fetch(import.meta.env.VITE_DB_SERVER_COMPANY, {
+    const res = await fetch(`https://db-backend-zij7.onrender.com/company`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newCompany)
