@@ -23,7 +23,7 @@ function CompanySelector({ selectedCompany, setFormdata }) {
   });
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_DB_SERVER_COMPANY)
+    fetch(`https://db-backend-zij7.onrender.com/company`)
       .then(res => res.json())
       .then(data => setCompanies(data));
   }, []);
