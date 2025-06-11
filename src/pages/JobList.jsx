@@ -22,7 +22,7 @@ const JobList = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch(import.meta.env.VITE_DB_SERVER_ACTIVEJOB);
+      const response = await fetch(`https://db-backend-zij7.onrender.com/activejobs`);
       const data = await response.json();
       setJobs(data);
     } catch (err) {
