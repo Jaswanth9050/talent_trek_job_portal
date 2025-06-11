@@ -25,7 +25,7 @@ const Employee_Register_Form = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(import.meta.env.VITE_REGISTER);
+      const res = await fetch(import.meta.env.VITE_DB_SERVER_REGISTER);
       const udata = await res.json();
       setData(udata);
     } catch (error) {
@@ -83,7 +83,7 @@ const Employee_Register_Form = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch(import.meta.env.VITE_DB_SERVER_REGISTER, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(register),

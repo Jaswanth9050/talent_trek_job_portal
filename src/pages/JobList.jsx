@@ -22,7 +22,7 @@ const JobList = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
+      const response = await fetch(import.meta.env.VITE_DB_SERVER_ACTIVEJOB);
       const data = await response.json();
       setJobs(data);
     } catch (err) {

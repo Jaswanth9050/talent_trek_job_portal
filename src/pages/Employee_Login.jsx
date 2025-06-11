@@ -16,7 +16,7 @@ const Employee_Login = () => {
     }
 
     try {
-      const res = await fetch(import.meta.env.VITE_REGISTER);
+      const res = await fetch(import.meta.env.VITE_DB_SERVER_REGISTER);
       const users = await res.json();
       const found = users.find(
         (user) => user.Emp_Id === employeeId && user.Password === password

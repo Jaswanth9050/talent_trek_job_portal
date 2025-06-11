@@ -20,7 +20,7 @@ const Application = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
+        const response = await fetch(import.meta.env.VITE_DB_SERVER_ACTIVEJOB);
         const data = await response.json();
         const foundJob = data.find((job) => job.id === id);
         if (foundJob) {

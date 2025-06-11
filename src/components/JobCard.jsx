@@ -27,7 +27,7 @@ const JobCard = ({ job }) => {
       try {
         console.log("Fetching for company:", company); // Debug
         // const response = await fetch(`http://localhost:3000/company?company_name=${company}`);
-        const response = await fetch(`${import.meta.env.VITE_COMPANY}?company_name=${encodeURIComponent(company)}`);
+        const response = await fetch(`${import.meta.env.VITE_DB_SERVER_COMPANY}?company_name=${encodeURIComponent(company)}`);
         const data = await response.json();
         console.log("Fetched company data:", data); // Debug
   

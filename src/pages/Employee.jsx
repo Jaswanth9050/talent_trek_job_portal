@@ -16,7 +16,7 @@ const Employee = () => {
   // ✅ Fetch all registered users on component mount
   const fetchData = async () => {
     try {
-      const Register_response = await fetch(import.meta.env.VITE_REGISTER);
+      const Register_response = await fetch(import.meta.env.VITE_DB_SERVER_REGISTER);
       const Register_Data = await Register_response.json();
       setUser(Register_Data); // ✅ Set user array
     } catch (error) {

@@ -12,7 +12,7 @@ const Employee_Posted_Jobs = () => {
   // Fetch all active jobs
   const fetchJobs = async () => {
     try {
-      const response = await fetch(import.meta.env.VITE_ACTIVE_JOBS);
+      const response = await fetch(import.meta.env.VITE_DB_SERVER_ACTIVEJOB);
       const data = await response.json();
       setJobsData(data);
     } catch (error) {
@@ -34,7 +34,7 @@ const Employee_Posted_Jobs = () => {
   const handleDelete = async (id) => {
     try {
       // await fetch(`http://localhost:3000/activejobs/${id}`, { method: 'DELETE' });
-      await fetch(`${import.meta.env.VITE_ACTIVE_JOBS}/${id}`, { method: 'DELETE' });
+      await fetch(`${import.meta.env.VITE_DB_SERVER_ACTIVEJOB}/${id}`, { method: 'DELETE' });
       setJobsData(prev => prev.filter(job => job.id !== id));
     } catch (error) {
       console.error('Error deleting data:', error);
@@ -82,7 +82,7 @@ const Employee_Posted_Jobs = () => {
 
       };
 
-      await fetch(`${import.meta.env.VITE_ACTIVE_JOBS}/${editingJobId}`, {
+      await fetch(`${import.meta.env.VITE_DB_SERVER_ACTIVEJOB}/${editingJobId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedJob)
@@ -113,7 +113,7 @@ const Employee_Posted_Jobs = () => {
       try {
         const storedCompanyName = localStorage.getItem("company_name");
         // const response = await fetch(`http://localhost:3000/company?company_name=${storedCompanyName}`);
-        const response = await fetch(`${import.meta.env.VITE_COMPANY}?company_name=${encodeURIComponent(storedCompanyName)}`);
+        const response = await fetch(`${import.meta.env.VITE_DB_SERVER_COMPANY}?company_name=${encodeURIComponent(storedCompanyName)}`);
         
         if (!response.ok) {
           throw new Error("Network response was not ok");
